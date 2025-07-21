@@ -1,6 +1,7 @@
 from fastapi.responses import JSONResponse
 
-def create_product(products,product_collection):
+
+def create_product(products, product_collection):
     # Inserts a new product into the products collection.
 
     # Args:
@@ -16,7 +17,7 @@ def create_product(products,product_collection):
     try:
         res = product_collection.insert_one(new_product)
     except Exception as e:
-        return JSONResponse(status_code=500, content={"error":str(e)})
+        return JSONResponse(status_code=500, content={"error": str(e)})
     finally:
         print(products)
-    return JSONResponse(status_code=201, content={"id":str(res.inserted_id)})
+    return JSONResponse(status_code=201, content={"id": str(res.inserted_id)})

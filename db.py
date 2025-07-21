@@ -7,6 +7,7 @@ load_dotenv()  # load variables from .env
 MONGO_URI = os.getenv("MONGO_URI")
 MONGO_DB = os.getenv("MONGO_DB", "ecommerce")
 
+
 def db_connect():
     print(MONGO_URI)
     print(MONGO_DB)

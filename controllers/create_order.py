@@ -1,6 +1,7 @@
 from fastapi.responses import JSONResponse
 
-def create_order(orders,order_collection):
+
+def create_order(orders, order_collection):
     # Creates a new order and inserts it into the MongoDB 'orders' collection.
 
     # Args:
@@ -16,7 +17,7 @@ def create_order(orders,order_collection):
     try:
         res = order_collection.insert_one(new_orders)
     except Exception as e:
-        return JSONResponse(status_code=500, content={"error":str(e)})
+        return JSONResponse(status_code=500, content={"error": str(e)})
     finally:
         print(orders)
-    return JSONResponse(status_code=201, content={"id":str(res.inserted_id)})
+    return JSONResponse(status_code=201, content={"id": str(res.inserted_id)})

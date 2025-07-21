@@ -10,23 +10,24 @@ from db import db_connect
 from models.products import Products
 
 app = FastAPI()
-product_collection,order_collection = db_connect()
+product_collection, order_collection = db_connect()
+
 
 @app.post("/products")
-def handle_products_post(products:Products):
-    return create_product(products,product_collection)
+def handle_products_post(products: Products):
+    return create_product(products, product_collection)
 
-   
+
 @app.get("/products")
 def get_list(params: ProductFilters = Depends()):
-    return list_products(params,product_collection)
+    return list_products(params, product_collection)
 
 
 @app.post("/orders")
-def post_orders(orders:Orders):
-    return create_order(orders,order_collection)
+def post_orders(orders: Orders):
+    return create_order(orders, order_collection)
 
 
 @app.get("/orders/{userId}")
-def get_orders(userId:str,params: OrderFilters = Depends()):
-    return list_orders(userId,params,order_collection)
+def get_orders(userId: str, params: OrderFilters = Depends()):
+    return list_orders(userId, params, order_collection)
