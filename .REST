@@ -1,0 +1,53 @@
+GET http://localhost:8000/products?size=large
+
+###Get orders filter
+GET http://localhost:8000/orders/user_1
+
+
+###Product post request
+POST http://localhost:8000/products
+Content-Type: application/json
+
+{
+    "name":"wow",
+    "price":8000,
+    "sizes":[
+        {
+            "size":"large",
+            "quantity":125
+        },
+        {
+            "size":"small",
+            "quantity":125
+        }
+
+    ]
+}
+
+
+
+###Product post request
+POST http://localhost:8000/products
+Content-Type: application/json
+
+{
+    "name":"wow",
+    "price":8000,
+    "sizes":[]
+}
+
+
+###Order Post request
+POST http://localhost:8000/orders
+Content-Type: application/json
+
+{
+    
+    "items":[
+        {
+            "productId":"687e563696d74862b47d43a8",
+            "qty":3
+        }
+    ]
+}
+
